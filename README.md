@@ -39,12 +39,24 @@ docker exec -it ollama ollama list
 ```
 
 ## How to start application
+
 ```bash
 java -jar build/libs/ai-chat-ollama-0.0.1-SNAPSHOT.jar
 ```
+or use [run.bat](run.bat) script
 
 ## How to ask question to AI
-Make HTTP GET request to endpoint exposed by service:
+
+Send GET request to endpoint exposed by service with message inside `message` request param:
+```
+http://localhost:8090/ai/generate?message=<your-message>
+```
+
+For example:
 ```bash
-curl -i http://localhost:8090/ai/generate?message=Перечисли%20типы%20в%20Java
+curl -i -X POST http://localhost:8090/ai/generate?message=tell%20me%20about%20Belarus
+```
+
+```bash
+curl -i http://localhost:8090/ai/generate?message=describe%20primitive%20types%20in%20Java
 ```
