@@ -1,5 +1,7 @@
 # AI chat using model hosted in local Ollama
 
+[![Java CI with Gradle](https://github.com/andrei-punko/ai-chat-ollama/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/ai-chat-ollama/actions/workflows/gradle.yml)
+
 ## Requirements
 - JDK 21
 - Gradle isn't required because of embedded Gradle in the project
