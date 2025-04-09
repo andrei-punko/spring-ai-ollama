@@ -54,7 +54,7 @@ http://localhost:8090/ai/generate?message=<your-message>
 
 For example:
 ```bash
-curl -i -X POST http://localhost:8090/ai/generate?message=tell%20me%20about%20Belarus
+curl -i http://localhost:8090/ai/generate?message=tell%20me%20about%20Belarus
 ```
 
 ```bash

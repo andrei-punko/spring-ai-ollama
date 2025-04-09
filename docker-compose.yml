@@ -9,7 +9,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: all  # alternatively, use `count: all` for all GPUs or `count: 1` for one GPU
+              count: all  # use `all` for all GPUs or `1` for one GPU
               capabilities: [ gpu ]
     command: serve
     volumes:
