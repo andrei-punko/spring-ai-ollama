@@ -13,53 +13,58 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class MainAppTest {
 
+    private final String OLLAMA_IMAGE_VERSION = "0.6.5";
+    private final String OLLAMA_IMAGE_NAME = "ollama/ollama:" + OLLAMA_IMAGE_VERSION;
+
     @Test
     public void startOllama() {
-        try ( // container {
-              OllamaContainer ollama = new OllamaContainer("ollama/ollama:0.6.5")
-              // }
-        ) {
+        try (var ollama = new OllamaContainer(OLLAMA_IMAGE_NAME)) {
             ollama.start();
 
-            String version = given().baseUri(ollama.getEndpoint())
-                    .get("/api/version").jsonPath().get("version");
-            assertThat(version).isEqualTo("0.6.5");
+            checkApiVersion(ollama);
         }
+    }
+
+    private void checkApiVersion(OllamaContainer ollama) {
+        String apiVersion = given()
+                .baseUri(ollama.getEndpoint())
+                .get("/api/version")
+                .jsonPath().get("version");
+        assertThat(apiVersion).isEqualTo(OLLAMA_IMAGE_VERSION);
     }
 
     @Test
     public void startOllamaDownloadModelAndCommitToImage() throws IOException, InterruptedException {
         String newImageName = "tc-ollama-all-minilm";
-        try (OllamaContainer ollama = new OllamaContainer("ollama/ollama:0.6.5")) {
+        try (var ollama = new OllamaContainer(OLLAMA_IMAGE_NAME)) {
             ollama.start();
 
-            // pullModel
+            // pull model
             ollama.execInContainer("ollama", "pull", "all-minilm");
 
-            String modelName = given()
-                    .baseUri(ollama.getEndpoint())
-                    .get("/api/tags")
-                    .jsonPath()
-                    .getString("models[0].name");
-            assertThat(modelName).contains("minilm");
+            checkModelName(ollama);
 
-            // commitToImage
+            // commit to image
             ollama.commitToImage(newImageName);
         }
-        try (
-                // substitute
-                OllamaContainer ollama = new OllamaContainer(
+        try (   // substitute
+                var ollama = new OllamaContainer(
                         DockerImageName.parse(newImageName)
-                                .asCompatibleSubstituteFor("ollama/ollama:0.6.5")
+                                .asCompatibleSubstituteFor(OLLAMA_IMAGE_NAME)
                 )
         ) {
             ollama.start();
-            String modelName = given()
-                    .baseUri(ollama.getEndpoint())
-                    .get("/api/tags")
-                    .jsonPath()
-                    .getString("models[0].name");
-            assertThat(modelName).contains("minilm");
+
+            checkModelName(ollama);
         }
+    }
+
+    private void checkModelName(OllamaContainer ollama) {
+        String modelName = given()
+                .baseUri(ollama.getEndpoint())
+                .get("/api/tags")
+                .jsonPath()
+                .getString("models[0].name");
+        assertThat(modelName).contains("minilm");
     }
 }
