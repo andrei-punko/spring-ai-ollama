@@ -1,0 +1,27 @@
+services:
+  ollama-model:
+    image: ollama/ollama:0.6.5
+    container_name: ollama_container
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all  # alternatively, use `count: all` for all GPUs or `count: 1` for one GPU
+              capabilities: [ gpu ]
+    command: serve
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    pull_policy: missing
+    tty: true
+    restart: no
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434"]
+      interval: 1m
+      timeout: 5s
+      retries: 3
+      start_period: 10s
