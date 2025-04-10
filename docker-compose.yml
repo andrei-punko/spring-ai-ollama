@@ -4,7 +4,7 @@ services:
     container_name: ollama_container
     ports:
       - "11434:11434"
-    deploy:
+    deploy:   # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
       resources:
         reservations:
           devices:

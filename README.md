@@ -5,9 +5,10 @@
 ## Prerequisites
 - JDK 21
 - Gradle isn't required because of embedded Gradle in the project
-- Docker
-- Ollama (install locally or use it inside Docker container)
+- Docker (used by unit tests and as preferred way to start Ollama)
+- Ollama (install it from [official site](https://ollama.com/download) or use it inside Docker container)
 - NVIDIA GPU (recommended) (checked on GeForce RTX 3060 12Gb)
+- On Linux to use GPU you need to install `nvidia-container-toolkit` according to [article](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
 
 ## How to build application
 
@@ -24,7 +25,7 @@ or use [run.bat](run.bat) script
 
 ## How to start Ollama
 
-Start it after installation from [official site](https://ollama.com/download) or run it inside Docker:
+Just start installed version or run it inside Docker container:
 ```bash
 docker compose up
 ```
