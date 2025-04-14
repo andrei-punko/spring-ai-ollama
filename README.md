@@ -1,4 +1,4 @@
-# Access to AI model hosted in local Ollama using Spring AI
+# AI chat with Ollama model using Spring AI
 
 [![Java CI with Gradle](https://github.com/andrei-punko/spring-ai-ollama/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/spring-ai-ollama/actions/workflows/gradle.yml)
 
