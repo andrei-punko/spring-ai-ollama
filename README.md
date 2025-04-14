@@ -1,6 +1,6 @@
-# AI chat using model hosted in local Ollama
+# Access to AI model hosted in local Ollama using Spring AI
 
-[![Java CI with Gradle](https://github.com/andrei-punko/ai-chat-ollama/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/ai-chat-ollama/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/andrei-punko/spring-ai-ollama/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/spring-ai-ollama/actions/workflows/gradle.yml)
 
 ## Prerequisites
 - JDK 21
@@ -19,7 +19,7 @@
 ## How to start application
 
 ```bash
-java -jar build/libs/ai-chat-ollama-0.0.1-SNAPSHOT.jar
+java -jar build/libs/spring-ai-ollama-0.0.1-SNAPSHOT.jar
 ```
 or use [run.bat](run.bat) script
 
