@@ -29,6 +29,7 @@ dependencies {
 	developmentOnly "org.springframework.ai:spring-ai-spring-boot-docker-compose:${springAiVersion}"
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter:1.20.6'
 	testImplementation 'org.testcontainers:ollama:1.20.6'
 	testImplementation 'io.rest-assured:rest-assured:5.4.0'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -40,6 +41,26 @@ dependencyManagement {
 	}
 }
 
-tasks.named('test') {
+tasks.withType(Test).configureEach {
 	useJUnitPlatform()
+
+	// Fix build warning about `Mockito is currently self-attaching ...`
+	jvmArgs "-javaagent:${configurations.testRuntimeClasspath.find { it.name.contains('mockito-core') }}", '-Xshare:off'
+
+	// show test status after each test
+	testLogging {
+		events "passed", "skipped", "failed",
+				// "standardOut",   // Uncomment to get all logs during tests execution
+				"standardError"
+	}
+
+	// show test report
+	afterSuite { desc, result ->
+		if (!desc.parent)
+			println("${result.resultType} " +
+					"(${result.testCount} tests, " +
+					"${result.successfulTestCount} successes, " +
+					"${result.failedTestCount} failures, " +
+					"${result.skippedTestCount} skipped)")
+	}
 }
