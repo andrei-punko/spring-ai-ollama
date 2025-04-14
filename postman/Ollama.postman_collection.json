@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "58666b09-f447-4d22-adef-b242ec87202d",
+		"name": "Ollama",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1701433"
+	},
+	"item": [
+		{
+			"name": "Расскажи про Беларусь",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Расскажи про Беларусь",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Расскажи про Беларусь"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Перечисли методы класса Object",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Перечисли методы класса Object",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Перечисли методы класса Object"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Перечисли типы в Java",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Перечисли типы в Java",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Перечисли типы в Java"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Напиши код сортировки пузырьком",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Напиши код сортировки пузырьком",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Напиши код сортировки пузырьком"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Какие версии Java являются LTS?",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Какие версии Java являются LTS?",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Какие версии Java являются LTS?"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Напиши код вычисления чисел Фибоначчи на Java",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Напиши код вычисления чисел Фибоначчи на Java",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Напиши код вычисления чисел Фибоначчи на Java"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Сколько апостолов было у Христа?",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Сколько апостолов было у Христа?",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Сколько апостолов было у Христа?"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Какую последнюю книгу перевел Феофан Затворник?",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Какую последнюю книгу перевел Феофан Затворник?",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Какую последнюю книгу перевел Феофан Затворник?"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Когда заканчивается срок правления Путина",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service-url}}/ai/generate?message=Когда заканчивается срок правления Путина",
+					"host": [
+						"{{service-url}}"
+					],
+					"path": [
+						"ai",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Когда заканчивается срок правления Путина"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
