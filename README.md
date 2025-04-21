@@ -8,7 +8,8 @@
 - Docker (used by unit tests and as preferred way to start Ollama)
 - Ollama (install it from [official site](https://ollama.com/download) or use it inside Docker container)
 - NVIDIA GPU (recommended) (checked on GeForce RTX 3060 12Gb)
-- On Linux to use GPU you need to install `nvidia-container-toolkit` according to [article](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
+- On Linux to use GPU you need to install `nvidia-container-toolkit` according
+  to [article](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
 
 ## How to build application
 
@@ -19,16 +20,9 @@
 ## How to start application
 
 ```bash
-java -jar build/libs/spring-ai-ollama-0.0.1-SNAPSHOT.jar
+docker compose -f docker-compose-prod.yml up
 ```
-or use [run.bat](run.bat) script
-
-## How to start Ollama
-
-Just start installed version or run it inside Docker container:
-```bash
-docker compose up
-```
+or use [run-all.bat](run-all.bat) script
 
 ## How to ask question to AI
 

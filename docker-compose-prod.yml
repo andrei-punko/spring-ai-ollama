@@ -1,0 +1,37 @@
+services:
+  ollama-model:
+    image: ollama/ollama:0.6.5
+    container_name: ollama_container
+    ports:
+      - "11434:11434"
+    deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all  # use `all` for all GPUs or `1` for one GPU
+              capabilities: [ gpu ]
+    command: serve
+    volumes:
+      - ./ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    environment:
+      OLLAMA_MODEL_NAME: gemma3:1b
+    pull_policy: missing
+    restart: no
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+
+  service:
+    image: openjdk:21-jdk-slim
+    container_name: spring_ai_app
+    ports:
+      - "8090:8090"
+    depends_on:
+      - ollama-model
+    volumes:
+      - ./build/libs/spring-ai-ollama-0.0.1-SNAPSHOT.jar:/usr/local/app.jar
+    environment:
+      OLLAMA_BASE_URL: http://ollama-model:11434
+      OLLAMA_MODEL_NAME: gemma3:1b
+    restart: no
+    entrypoint: [ "java", "-jar", "/usr/local/app.jar" ]
