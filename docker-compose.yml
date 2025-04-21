@@ -4,13 +4,13 @@ services:
     container_name: ollama_container
     ports:
       - "11434:11434"
-    deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all  # use `all` for all GPUs or `1` for one GPU
-              capabilities: [ gpu ]
+#    deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: all  # use `all` for all GPUs or `1` for one GPU
+#              capabilities: [ gpu ]
     command: serve
     volumes:
       - ./ollama:/root/.ollama
