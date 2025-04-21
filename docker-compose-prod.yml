@@ -4,6 +4,8 @@ services:
     container_name: ollama_container
     ports:
       - "11434:11434"
+    healthcheck:
+      test: ollama --version
     deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
       resources:
         reservations:
@@ -15,11 +17,9 @@ services:
     volumes:
       - ./ollama:/root/.ollama
       - ./entrypoint.sh:/entrypoint.sh
-    environment:
-      OLLAMA_MODEL_NAME: gemma3:1b
     pull_policy: missing
     restart: no
-    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh", "gemma3:1b"]
 
   service:
     image: openjdk:21-jdk-slim

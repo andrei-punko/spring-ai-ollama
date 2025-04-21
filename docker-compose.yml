@@ -4,6 +4,9 @@ services:
     container_name: ollama_container
     ports:
       - "11434:11434"
+    healthcheck:
+      test: ollama --version && ollama run tinyllama
+# -- Commented because of absence of GPU on GitHub build server --
 #    deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
 #      resources:
 #        reservations:
@@ -11,12 +14,12 @@ services:
 #            - driver: nvidia
 #              count: all  # use `all` for all GPUs or `1` for one GPU
 #              capabilities: [ gpu ]
+# ----------------------------------------------------------------
     command: serve
     volumes:
       - ./ollama:/root/.ollama
       - ./entrypoint.sh:/entrypoint.sh
-    environment:
-      OLLAMA_MODEL_NAME: tinyllama
     pull_policy: missing
+    tty: true
     restart: no
-    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh", "tinyllama" ]

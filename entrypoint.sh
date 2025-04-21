@@ -8,8 +8,8 @@ pid=$!
 # Pause for Ollama to start.
 sleep 5
 
-echo "🔴 Retrieve $OLLAMA_MODEL_NAME model..."
-ollama pull "$OLLAMA_MODEL_NAME"
+echo "🔴 Retrieve $1 model..."
+ollama pull $1
 echo "🟢 Done!"
 
 # Wait for the Ollama process to finish.
