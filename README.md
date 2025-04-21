@@ -8,8 +8,8 @@
 - Docker (used by unit tests and as preferred way to start Ollama)
 - Ollama (install it from [official site](https://ollama.com/download) or use it inside Docker container)
 - NVIDIA GPU (recommended) (checked on GeForce RTX 3060 12Gb)
-- On Linux to use GPU you need to install `nvidia-container-toolkit` according
-  to [article](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
+  - On Linux to use GPU you need to install `nvidia-container-toolkit` according
+    to [article](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
 
 ## How to build application
 
@@ -24,10 +24,9 @@ docker compose -f docker-compose-prod.yml up
 ```
 or use [run-all.bat](run-all.bat) script
 
-## How to ask question to AI
+## How to ask question to AI model
 
 Send POST request to `/api/generate` endpoint exposed by service with question inside `prompt` field of request body.
-
 For example:
 ```shell
 curl -i -H 'Content-Type: application/json' \
@@ -40,6 +39,20 @@ curl -i -H 'Content-Type: application/json' \
   -d '{ "prompt": "Describe primitive types in Java" }' \
   -X POST http://localhost:8090/api/generate
 ```
+
+```shell
+curl -i -H 'Content-Type: application/json' \
+  -d '{ "prompt": "Write code of bubble sort using Java" }' \
+  -X POST http://localhost:8090/api/generate
+```
+
+Or you could use prepared collection of Postman requests from [postman folder](postman). Just import them into your
+Postman
+
+## Video with description of the project
+
+[//]: # ([YouTube link]&#40;https://youtu.be/SoDIjw-Ov8o&#41;)
+[![YouTube link](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FSoDIjw-Ov8o)](https://youtu.be/SoDIjw-Ov8o)
 
 ## Appendix: communication with Ollama started inside a Docker container
 
