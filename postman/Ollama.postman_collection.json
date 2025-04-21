@@ -1,22 +1,39 @@
 {
 	"info": {
-		"_postman_id": "58666b09-f447-4d22-adef-b242ec87202d",
-		"name": "Ollama",
+		"_postman_id": "9037cad9-6926-4875-9778-b27b54e7a4f9",
+		"name": "Ollama REST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1701433"
 	},
 	"item": [
 		{
-			"name": "Расскажи про Беларусь",
+			"name": "API tags",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:11434/api/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate - Tell me about Minecraft game",
+			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Расскажи про Беларусь\"\r\n}",
+					"raw": "{\r\n    \"model\": \"llama3.1:8b\",\r\n    \"prompt\": \"Tell me about Minecraft game\",\r\n    \"stream\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -24,10 +41,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{service-url}}/api/generate",
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
 					"host": [
-						"{{service-url}}"
+						"localhost"
 					],
+					"port": "11434",
 					"path": [
 						"api",
 						"generate"
@@ -37,16 +56,13 @@
 			"response": []
 		},
 		{
-			"name": "Перечисли методы класса Object в Java",
+			"name": "Chat - Tell me about Minecraft game",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Перечисли методы класса Object в Java\"\r\n}",
+					"raw": "{\r\n    \"model\": \"llama3.1:8b\",\r\n    \"messages\": [{\r\n        \"role\": \"user\",\r\n        \"content\": \"Tell me about Minecraft game\"\r\n    }],\r\n    \"stream\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,163 +70,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{service-url}}/api/generate",
+					"raw": "http://localhost:11434/api/chat",
+					"protocol": "http",
 					"host": [
-						"{{service-url}}"
+						"localhost"
 					],
+					"port": "11434",
 					"path": [
 						"api",
-						"generate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Перечисли типы в Java",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Перечисли типы в Java\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{service-url}}/api/generate",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"api",
-						"generate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Напиши код сортировки пузырьком",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Напиши код сортировки пузырьком\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{service-url}}/api/generate",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"api",
-						"generate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Какие версии Java являются LTS?",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Какие версии Java являются LTS?\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{service-url}}/api/generate",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"api",
-						"generate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Напиши код вычисления чисел Фибоначчи на Java",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Напиши код вычисления чисел Фибоначчи на Java\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{service-url}}/api/generate",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"api",
-						"generate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Сколько апостолов было у Христа?",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"prompt\": \"Сколько апостолов было у Христа?\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{service-url}}/api/generate",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"api",
-						"generate"
+						"chat"
 					]
 				}
 			},
