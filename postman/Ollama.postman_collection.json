@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9037cad9-6926-4875-9778-b27b54e7a4f9",
-		"name": "Ollama REST",
+		"name": "Ollama",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1701433"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"model\": \"llama3.1:8b\",\r\n    \"prompt\": \"Tell me about Minecraft game\",\r\n    \"stream\": false\r\n}",
+					"raw": "{\r\n    \"model\": \"gemma3:1b\",\r\n    \"prompt\": \"Tell me about Minecraft game\",\r\n    \"stream\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"model\": \"llama3.1:8b\",\r\n    \"messages\": [{\r\n        \"role\": \"user\",\r\n        \"content\": \"Tell me about Minecraft game\"\r\n    }],\r\n    \"stream\": false\r\n}",
+					"raw": "{\r\n    \"model\": \"gemma3:1b\",\r\n    \"messages\": [{\r\n        \"role\": \"user\",\r\n        \"content\": \"Tell me about Minecraft game\"\r\n    }],\r\n    \"stream\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -17,7 +17,7 @@
 ./gradlew clean build
 ```
 
-## How to start application
+## How to start Docker containers with Ollama model and Spring AI application
 
 ```bash
 docker compose -f docker-compose-prod.yml up
