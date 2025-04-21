@@ -1,7 +1,6 @@
 package by.andd3dfx.ai.controller;
 
 import by.andd3dfx.ai.controller.dto.MsgRequest;
-import by.andd3dfx.ai.controller.dto.MsgResponse;
 import by.andd3dfx.ai.service.ChatService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,7 @@ class ChatControllerTest {
     @Test
     void generate() {
         var request = MsgRequest.builder().build();
-        var response = MsgResponse.builder().build();
+        var response = "Some answer";
         when(chatService.generate(request)).thenReturn(response);
 
         var result = chatController.generate(request);

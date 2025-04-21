@@ -4,7 +4,7 @@ services:
     container_name: ollama_container
     ports:
       - "11434:11434"
-    deploy:   # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
+    deploy: # according to instruction: https://docs.docker.com/compose/how-tos/gpu-support/
       resources:
         reservations:
           devices:
@@ -14,5 +14,9 @@ services:
     command: serve
     volumes:
       - ./ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    environment:
+      OLLAMA_MODEL_NAME: tinyllama
     pull_policy: missing
     restart: no
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
