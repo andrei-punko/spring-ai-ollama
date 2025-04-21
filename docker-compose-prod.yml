@@ -19,7 +19,7 @@ services:
       - ./entrypoint.sh:/entrypoint.sh
     pull_policy: missing
     restart: no
-    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh", "gemma3:1b"]
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh", "gemma3:1b" ]
 
   service:
     image: openjdk:21-jdk-slim

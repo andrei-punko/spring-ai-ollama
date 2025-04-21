@@ -30,11 +30,15 @@ Send POST request to `/api/generate` endpoint exposed by service with question i
 
 For example:
 ```shell
-curl -i -H 'Content-Type: application/json' -d '{ "prompt": "Tell me about Belarus" }' -X POST http://localhost:8090/api/generate
+curl -i -H 'Content-Type: application/json' \
+  -d '{ "prompt": "Tell me about Belarus" }' \
+  -X POST http://localhost:8090/api/generate
 ```
 
 ```shell
-curl -i -H 'Content-Type: application/json' -d '{ "prompt": "Describe primitive types in Java" }' -X POST http://localhost:8090/api/generate
+curl -i -H 'Content-Type: application/json' \
+  -d '{ "prompt": "Describe primitive types in Java" }' \
+  -X POST http://localhost:8090/api/generate
 ```
 
 ## Appendix: communication with Ollama started inside a Docker container
