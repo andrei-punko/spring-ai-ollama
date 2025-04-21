@@ -12,46 +12,55 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Расскажи про Беларусь\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Расскажи про Беларусь",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Расскажи про Беларусь"
-						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Перечисли методы класса Object",
+			"name": "Перечисли методы класса Object в Java",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Перечисли методы класса Object в Java\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Перечисли методы класса Object",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Перечисли методы класса Object"
-						}
 					]
 				}
 			},
@@ -63,22 +72,25 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Перечисли типы в Java\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Перечисли типы в Java",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Перечисли типы в Java"
-						}
 					]
 				}
 			},
@@ -90,22 +102,25 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Напиши код сортировки пузырьком\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Напиши код сортировки пузырьком",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Напиши код сортировки пузырьком"
-						}
 					]
 				}
 			},
@@ -117,22 +132,25 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Какие версии Java являются LTS?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Какие версии Java являются LTS?",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Какие версии Java являются LTS?"
-						}
 					]
 				}
 			},
@@ -144,22 +162,25 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Напиши код вычисления чисел Фибоначчи на Java\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Напиши код вычисления чисел Фибоначчи на Java",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Напиши код вычисления чисел Фибоначчи на Java"
-						}
 					]
 				}
 			},
@@ -171,76 +192,25 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Сколько апостолов было у Христа?",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"ai",
-						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Сколько апостолов было у Христа?"
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Сколько апостолов было у Христа?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Какую последнюю книгу перевел Феофан Затворник?",
-			"request": {
-				"auth": {
-					"type": "noauth"
+					}
 				},
-				"method": "GET",
-				"header": [],
 				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Какую последнюю книгу перевел Феофан Затворник?",
+					"raw": "{{service-url}}/api/generate",
 					"host": [
 						"{{service-url}}"
 					],
 					"path": [
-						"ai",
+						"api",
 						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Какую последнюю книгу перевел Феофан Затворник?"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Когда заканчивается срок правления Путина",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{service-url}}/ai/generate?message=Когда заканчивается срок правления Путина",
-					"host": [
-						"{{service-url}}"
-					],
-					"path": [
-						"ai",
-						"generate"
-					],
-					"query": [
-						{
-							"key": "message",
-							"value": "Когда заканчивается срок правления Путина"
-						}
 					]
 				}
 			},

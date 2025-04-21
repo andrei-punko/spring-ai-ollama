@@ -20,18 +20,28 @@ repositories {
 
 ext {
 	set('springAiVersion', "1.0.0-M6")
+	set('lombokVersion', "1.18.38")
 }
 
 dependencies {
+	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+	// Ollama & Spring AI
+	testImplementation 'org.testcontainers:ollama:1.20.6'
+	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter'
 	developmentOnly 'org.springframework.ai:spring-ai-spring-boot-docker-compose'
 
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.testcontainers:ollama:1.20.6'
 	testImplementation 'io.rest-assured:rest-assured:5.5.1'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Lombok
+	implementation "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+	testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
 
 dependencyManagement {

@@ -1,27 +1,21 @@
 package by.andd3dfx.ai.controller;
 
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import by.andd3dfx.ai.controller.dto.MsgRequest;
+import by.andd3dfx.ai.controller.dto.MsgResponse;
+import by.andd3dfx.ai.service.ChatService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class ChatController {
 
-    private final ChatClient chatClient;
+    private final ChatService chatService;
 
-    public ChatController(ChatClient.Builder builder) {
-        this.chatClient = builder
-                // Adjust system message to define role of AI assistant
-                // .defaultSystem("You are a AI assistant answering questions to Russian user")
-                .build();
-    }
-
-    @GetMapping("/ai/generate")
-    public String generate(@RequestParam(value = "message") String message) {
-        return chatClient.prompt()
-                .user(message)
-                .call()
-                .content();
+    @PostMapping("/api/generate")
+    public MsgResponse generate(@RequestBody MsgRequest request) {
+        return chatService.generate(request);
     }
 }

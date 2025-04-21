@@ -32,18 +32,15 @@ docker compose up
 
 ## How to ask question to AI
 
-Send GET request to endpoint exposed by service with message inside `message` request param:
-```
-http://localhost:8090/ai/generate?message=<your-message>
-```
+Send POST request to `/api/generate` endpoint exposed by service with question inside `prompt` field of request body.
 
 For example:
-```bash
-curl -i http://localhost:8090/ai/generate?message=tell%20me%20about%20Belarus
+```shell
+curl -i -H 'Content-Type: application/json' -d '{ "prompt": "Tell me about Belarus" }' -X POST http://localhost:8090/api/generate
 ```
 
-```bash
-curl -i http://localhost:8090/ai/generate?message=describe%20primitive%20types%20in%20Java
+```shell
+curl -i -H 'Content-Type: application/json' -d '{ "prompt": "Describe primitive types in Java" }' -X POST http://localhost:8090/api/generate
 ```
 
 ## Appendix: communication with Ollama started inside a Docker container
